@@ -1,0 +1,4 @@
+<h3>
+	<%= @tags.collect{ |tag| tag.name}.join(" | ") %>
+</h3>
+<%= link_to 'Go back Home', root_path %>

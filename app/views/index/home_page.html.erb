@@ -1,0 +1,10 @@
+<h1>Home page<h1>
+<p>
+	<div><%= link_to 'Sign up', new_author_path %></div>
+	<div>
+		<%= link_to 'Articles', articles_path %> | <%= link_to 'Tags', tags_path %>
+		<% if logged_in? %>
+			<%= link_to 'New article', new_article_path %>
+		<% end %>
+	</div>
+</p>

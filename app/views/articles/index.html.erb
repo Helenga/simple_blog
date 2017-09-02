@@ -1,0 +1,18 @@
+<p>
+<% @articles.each do |article| %>
+	<p>
+	<%= article.id %> |>
+	<%= article.title %><br>
+	<%= article.text %>
+	<%= link_to 'Show more', article_path(article) %>
+  <% if logged_in? %>
+	<%= link_to 'Edit', edit_article_path(article) %>
+	<%= link_to 'Delete', article_path(article),
+			method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>	
+	</p>
+<% end %>
+</p>
+<footer>
+	<%= link_to 'Go back Home', root_path %>
+</footer>
