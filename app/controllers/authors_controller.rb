@@ -38,7 +38,8 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
+        format.html { redirect_to @author, 
+			notice: 'Author was successfully created, use "Log in" to sign in ' }
         format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }
@@ -51,6 +52,7 @@ class AuthorsController < ApplicationController
   # PATCH/PUT /authors/1.json
   def update
     respond_to do |format|
+      @author = current_user
       if @author.update(author_params)
         format.html { redirect_to @author, notice: 'Author was successfully updated.' }
         format.json { render :show, status: :ok, location: @author }
