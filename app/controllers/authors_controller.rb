@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
-  before_action :authenticated, only: [:new, :create]
-	def zero_authors_or_authenticated
+  before_action :authenticated?, only: [:new, :create]
+	def authenticated?
 		unless current_user
 			redirect_to root_path
 			return false
